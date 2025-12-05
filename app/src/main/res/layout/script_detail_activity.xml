@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".ScriptDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            tools:title="Название скрипта" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                tools:text="Описание скрипта..." />
+
+            <TextView android:id="@+id/tv_author" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Автор: AquaSpoof"/>
+            <TextView android:id="@+id/tv_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Версия: 1.2.0"/>
+            <TextView android:id="@+id/tv_license" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Лицензия: MIT"/>
+            <TextView android:id="@+id/tv_filename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Файл: BlockTapper.js"/>
+            <TextView android:id="@+id/tv_filesize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Размер: 1.5 KB"/>
+            <TextView android:id="@+id/tv_downloads" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Скачиваний: 123"/>
+            <TextView android:id="@+id/tv_github" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="GitHub:..." android:autoLink="web"/>
+            <TextView android:id="@+id/tv_websites" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Соц. сети:..." android:autoLink="web"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/detail_hashes_server"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(Нажмите на хеш, чтобы скопировать)"
+                android:textSize="12sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView android:id="@+id/tv_server_md5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="MD5:..."/>
+            <TextView android:id="@+id/tv_server_sha1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA1:..."/>
+            <TextView android:id="@+id/tv_server_sha256" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA256:..."/>
+            <TextView android:id="@+id/tv_server_crc32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="CRC32:..."/>
+
+            <LinearLayout
+                android:id="@+id/layout_local_hashes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/detail_hashes_local"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(Нажмите на хеш, чтобы скопировать)"
+                    android:textSize="12sp"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView android:id="@+id/tv_local_md5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="MD5:..."/>
+                <TextView android:id="@+id/tv_local_sha1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA1:..."/>
+                <TextView android:id="@+id/tv_local_sha256" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA256:..."/>
+                <TextView android:id="@+id/tv_local_crc32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="CRC32:..."/>
+
+                <Button
+                    android:id="@+id/button_compare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_hashes_compare"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layout_progress_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_progress_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="2.4 MB / 4.0 MB" />
+
+        <TextView
+            android:id="@+id/tv_progress_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            tools:text="1.2 MB/s" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:minHeight="50dp">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_button_fill"
+            tools:progress="60" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:text="@string/script_button_download"
+            app:icon="@null"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
+
+    </FrameLayout>
+</LinearLayout>

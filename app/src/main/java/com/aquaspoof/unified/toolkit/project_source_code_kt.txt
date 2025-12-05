@@ -1,0 +1,1313 @@
+=== Файл: ./mcpe/ApiService.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import okhttp3.ResponseBody
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Streaming
+import retrofit2.http.Url
+
+interface ApiService {
+
+    @GET("scripts")
+    suspend fun getScripts(): List<ScriptItem>
+
+    @Streaming
+    @GET
+    suspend fun downloadFile(@Url fileUrl: String): ResponseBody
+
+    companion object {
+        private const val BASE_URL = "https://ut-mcpe.org"
+
+        val instance: ApiService by lazy {
+            val retrofit = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            retrofit.create(ApiService::class.java)
+        }
+    }
+}
+=== Конец файла ./mcpe/ApiService.kt ===
+
+=== Файл: ./mcpe/MainActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.aquaspoof.unified.toolkit.mcpe.databinding.MainActivityBinding
+import com.google.firebase.messaging.FirebaseMessaging
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: MainActivityBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+
+        binding.buttonVariableCatalog.setOnClickListener {
+            val intent = Intent(this, CategoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        subscribeToTopic()
+    }
+
+    private fun subscribeToTopic() {
+        FirebaseMessaging.getInstance().subscribeToTopic("all_users")
+            .addOnCompleteListener { task ->
+                var msg = "Подписка на 'all_users' успешна"
+                if (!task.isSuccessful) {
+                    msg = "Ошибка подписки на 'all_users'"
+                }
+                Log.d("MainActivity-FCM", msg)
+            }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
+            R.id.action_about -> {
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
+            R.id.action_license -> {
+                val intent = Intent(this, LicenseActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+}
+=== Конец файла ./mcpe/MainActivity.kt ===
+
+=== Файл: ./mcpe/HashCalculator.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Context
+import android.net.Uri
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.security.MessageDigest
+import java.util.zip.CRC32
+
+data class FileHashes(
+    val md5: String = "...",
+    val sha1: String = "...",
+    val sha256: String = "...",
+    val crc32: String = "..."
+)
+
+object HashCalculator {
+    suspend fun calculateHashes(context: Context, uri: Uri): FileHashes = withContext(Dispatchers.IO) {
+        val md5Digest = MessageDigest.getInstance("MD5")
+        val sha1Digest = MessageDigest.getInstance("SHA-1")
+        val sha256Digest = MessageDigest.getInstance("SHA-256")
+        val crc32 = CRC32()
+
+        try {
+            context.contentResolver.openInputStream(uri)?.use { inputStream ->
+                val buffer = ByteArray(8192)
+                var bytesRead: Int
+                while (inputStream.read(buffer).also { bytesRead = it } != -1) {
+                    md5Digest.update(buffer, 0, bytesRead)
+                    sha1Digest.update(buffer, 0, bytesRead)
+                    sha256Digest.update(buffer, 0, bytesRead)
+                    crc32.update(buffer, 0, bytesRead)
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return@withContext FileHashes("Ошибка", "Ошибка", "Ошибка", "Ошибка")
+        }
+
+        return@withContext FileHashes(
+            md5 = md5Digest.digest().toHexString(),
+            sha1 = sha1Digest.digest().toHexString(),
+            sha256 = sha256Digest.digest().toHexString(),
+            crc32 = crc32.value.toHexString()
+        )
+    }
+
+    private fun ByteArray.toHexString() = joinToString("") { "%02x".format(it) }
+    private fun Long.toHexString() = "%08x".format(this)
+}
+=== Конец файла ./mcpe/HashCalculator.kt ===
+
+=== Файл: ./mcpe/InfoActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
+import com.aquaspoof.unified.toolkit.mcpe.databinding.InfoActivityBinding
+
+class InfoActivity : AppCompatActivity() {
+
+    private lateinit var binding: InfoActivityBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        if (prefs.getBoolean("hasSeenInfoScreen", false)) {
+            goToMainApp()
+            return
+        }
+
+        binding = InfoActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.buttonContinue.setOnClickListener {
+            prefs.edit {
+                putBoolean("hasSeenInfoScreen", true)
+            }
+            goToMainApp()
+        }
+    }
+
+    private fun goToMainApp() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+}
+=== Конец файла ./mcpe/InfoActivity.kt ===
+
+=== Файл: ./mcpe/SettingsActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.aquaspoof.unified.toolkit.mcpe.databinding.SettingsActivityBinding
+
+class SettingsActivity : AppCompatActivity() {
+
+    private lateinit var binding: SettingsActivityBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = SettingsActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        setupLanguageSelector()
+    }
+
+    private fun setupLanguageSelector() {
+        val currentLang = LocaleHelper.getSavedLanguage(this)
+
+        val systemLang = java.util.Locale.getDefault().displayLanguage
+        binding.rbSystem.text = getString(R.string.setup_lang_system_dynamic, systemLang)
+
+        when (currentLang) {
+            LocaleHelper.LANG_RUSSIAN -> binding.rgLanguage.check(R.id.rb_russian)
+            LocaleHelper.LANG_ENGLISH -> binding.rgLanguage.check(R.id.rb_english)
+            LocaleHelper.LANG_UKRAINIAN -> binding.rgLanguage.check(R.id.rb_ukrainian)
+            LocaleHelper.LANG_BELARUSIAN -> binding.rgLanguage.check(R.id.rb_belarusian)
+            LocaleHelper.LANG_CHINESE_S -> binding.rgLanguage.check(R.id.rb_chinese_s)
+            LocaleHelper.LANG_CHINESE_T -> binding.rgLanguage.check(R.id.rb_chinese_t)
+            else -> binding.rgLanguage.check(R.id.rb_system)
+        }
+
+        binding.rgLanguage.setOnCheckedChangeListener { _, checkedId ->
+            val lang = when (checkedId) {
+                R.id.rb_russian -> LocaleHelper.LANG_RUSSIAN
+                R.id.rb_english -> LocaleHelper.LANG_ENGLISH
+                R.id.rb_ukrainian -> LocaleHelper.LANG_UKRAINIAN
+                R.id.rb_belarusian -> LocaleHelper.LANG_BELARUSIAN
+                R.id.rb_chinese_s -> LocaleHelper.LANG_CHINESE_S
+                R.id.rb_chinese_t -> LocaleHelper.LANG_CHINESE_T
+                else -> LocaleHelper.LANG_SYSTEM
+            }
+            LocaleHelper.saveLocalePreference(this, lang)
+            LocaleHelper.setLocale(lang)
+            recreate()
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+}
+=== Конец файла ./mcpe/SettingsActivity.kt ===
+
+=== Файл: ./mcpe/AboutActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.aquaspoof.unified.toolkit.mcpe.databinding.AboutActivityBinding
+import com.aquaspoof.unified.toolkit.mcpe.BuildConfig
+
+class AboutActivity : AppCompatActivity() {
+
+    private lateinit var binding: AboutActivityBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = AboutActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        binding.tvAppName.text = getString(
+            R.string.about_label_app_name,
+            getString(R.string.app_name)
+        )
+
+        binding.tvVersion.text = getString(
+            R.string.about_label_version,
+            BuildConfig.VERSION_NAME,
+            BuildConfig.VERSION_CODE.toString()
+        )
+
+        binding.tvPackage.text = getString(
+            R.string.about_label_package,
+            BuildConfig.APPLICATION_ID
+        )
+
+        binding.tvAuthor.text = getString(
+            R.string.about_label_author,
+            getString(R.string.about_author_name)
+        )
+
+        binding.tvGithub.text = getString(
+            R.string.about_label_github,
+            getString(R.string.about_github_url)
+        )
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+}
+=== Конец файла ./mcpe/AboutActivity.kt ===
+
+=== Файл: ./mcpe/LocaleHelper.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.edit
+import androidx.core.os.LocaleListCompat
+import java.util.Locale
+
+object LocaleHelper {
+
+    const val PREFS_NAME = "app_prefs"
+    const val PREF_KEY_LANGUAGE = "selected_language"
+
+    const val LANG_SYSTEM = "system"
+    const val LANG_ENGLISH = "en"
+    const val LANG_RUSSIAN = "ru"
+    const val LANG_UKRAINIAN = "uk"
+    const val LANG_BELARUSIAN = "be"
+    const val LANG_CHINESE_S = "zh-CN"
+    const val LANG_CHINESE_T = "zh-TW"
+
+    fun applySavedLocale(context: Context) {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val language = prefs.getString(PREF_KEY_LANGUAGE, LANG_SYSTEM) ?: LANG_SYSTEM
+        setLocale(language)
+    }
+
+    fun setLocale(languageCode: String) {
+        val localeList = when (languageCode) {
+            LANG_ENGLISH -> LocaleListCompat.forLanguageTags(LANG_ENGLISH)
+            LANG_RUSSIAN -> LocaleListCompat.forLanguageTags(LANG_RUSSIAN)
+            LANG_UKRAINIAN -> LocaleListCompat.forLanguageTags(LANG_UKRAINIAN)
+            LANG_BELARUSIAN -> LocaleListCompat.forLanguageTags(LANG_BELARUSIAN)
+            LANG_CHINESE_S -> LocaleListCompat.forLanguageTags("zh-Hans-CN")
+            LANG_CHINESE_T -> LocaleListCompat.forLanguageTags("zh-Hant-TW")
+            else -> LocaleListCompat.getEmptyLocaleList()
+        }
+        AppCompatDelegate.setApplicationLocales(localeList)
+    }
+
+    fun saveLocalePreference(context: Context, languageCode: String) {
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit {
+            putString(PREF_KEY_LANGUAGE, languageCode)
+        }
+    }
+
+    fun getSavedLanguage(context: Context): String {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return prefs.getString(PREF_KEY_LANGUAGE, LANG_SYSTEM) ?: LANG_SYSTEM
+    }
+}
+=== Конец файла ./mcpe/LocaleHelper.kt ===
+
+=== Файл: ./mcpe/CategoryActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.aquaspoof.unified.toolkit.mcpe.databinding.CategoryActivityBinding
+
+class CategoryActivity : AppCompatActivity() {
+
+    private lateinit var binding: CategoryActivityBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = CategoryActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        binding.buttonScripts.setOnClickListener {
+            val intent = Intent(this, ScriptListActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonConfigs.setOnClickListener {
+            Toast.makeText(this, getString(R.string.category_button_configs), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+}
+=== Конец файла ./mcpe/CategoryActivity.kt ===
+
+=== Файл: ./mcpe/PushNotificationService.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+import android.util.Log
+import androidx.core.app.NotificationCompat
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
+
+class PushNotificationService : FirebaseMessagingService() {
+
+    companion object {
+        private const val TAG = "PushNotificationService"
+        private const val CHANNEL_ID = "push_channel"
+    }
+
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
+        Log.d(TAG, "Refreshed FCM token: $token")
+    }
+
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        super.onMessageReceived(remoteMessage)
+
+        val title = remoteMessage.notification?.title
+        val body = remoteMessage.notification?.body
+
+        if (title != null && body != null) {
+            sendNotification(title, body)
+        }
+    }
+
+    private fun sendNotification(title: String, messageBody: String) {
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = getString(R.string.push_notification_channel_name)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importance)
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        val notificationId = System.currentTimeMillis().toInt()
+        val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle(title)
+            .setContentText(messageBody)
+            .setAutoCancel(true)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        notificationManager.notify(notificationId, notificationBuilder.build())
+    }
+}
+=== Конец файла ./mcpe/PushNotificationService.kt ===
+
+=== Файл: ./mcpe/LicenseActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.aquaspoof.unified.toolkit.mcpe.databinding.LicenseActivityBinding
+
+class LicenseActivity : AppCompatActivity() {
+
+    private lateinit var binding: LicenseActivityBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = LicenseActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        binding.tvLicenseName.text = getString(R.string.license_name_mit)
+        binding.tvLicenseText.text = getString(R.string.license_full_text_mit)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+}
+=== Конец файла ./mcpe/LicenseActivity.kt ===
+
+=== Файл: ./mcpe/ScriptAdapter.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Intent
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.aquaspoof.unified.toolkit.mcpe.databinding.ScriptListItemBinding
+
+class ScriptAdapter(private var scripts: List<ScriptItem>) :
+    RecyclerView.Adapter<ScriptAdapter.ScriptViewHolder>() {
+
+    class ScriptViewHolder(val binding: ScriptListItemBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScriptViewHolder {
+        val binding = ScriptListItemBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ScriptViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ScriptViewHolder, position: Int) {
+        val script = scripts[position]
+        holder.binding.tvScriptName.text = script.name
+        holder.binding.tvScriptDescription.text = script.description
+
+        val context = holder.itemView.context
+
+        val openDetails = {
+            val intent = Intent(context, ScriptDetailActivity::class.java).apply {
+                putExtra(ScriptDetailActivity.EXTRA_SCRIPT, script)
+            }
+            context.startActivity(intent)
+        }
+
+        holder.binding.buttonDetails.setOnClickListener {
+            openDetails()
+        }
+
+        holder.itemView.setOnClickListener {
+            openDetails()
+        }
+    }
+
+    override fun getItemCount() = scripts.size
+
+    fun updateData(newScripts: List<ScriptItem>) {
+        scripts = newScripts
+        notifyDataSetChanged()
+    }
+}
+=== Конец файла ./mcpe/ScriptAdapter.kt ===
+
+=== Файл: ./mcpe/ScriptItem.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class ScriptItem(
+    @SerializedName("id") val id: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("version") val version: String,
+    @SerializedName("authors") val authors: List<String>,
+    @SerializedName("github") val github: String?,
+    @SerializedName("websites") val websites: List<String>,
+    @SerializedName("description") val description: String,
+    @SerializedName("license") val license: String,
+    @SerializedName("filename") val filename: String,
+    @SerializedName("downloadCount") val downloadCount: Int,
+    @SerializedName("fileSize") val fileSize: Long,
+    @SerializedName("downloadUrl") val downloadUrl: String,
+
+    @SerializedName("md5") val md5: String?,
+    @SerializedName("sha1") val sha1: String?,
+    @SerializedName("sha256") val sha256: String?,
+    @SerializedName("crc32") val crc32: String?
+) : Parcelable
+=== Конец файла ./mcpe/ScriptItem.kt ===
+
+=== Файл: ./mcpe/NotificationHelper.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+import androidx.core.app.NotificationCompat
+
+class NotificationHelper(private val context: Context) {
+
+    companion object {
+        private const val CHANNEL_ID = "download_channel"
+    }
+
+    private val notificationManager =
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+    fun createChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = context.getString(R.string.download_notification_channel_name)
+            val importance = NotificationManager.IMPORTANCE_LOW
+            val channel = NotificationChannel(CHANNEL_ID, name, importance)
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    fun buildProgressNotification(filename: String, progress: Int): NotificationCompat.Builder {
+        return NotificationCompat.Builder(context, CHANNEL_ID)
+            .setContentTitle(context.getString(R.string.download_notification_title))
+            .setContentText(filename)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setOngoing(true)
+            .setProgress(100, progress, false)
+            .setOnlyAlertOnce(true)
+    }
+
+    fun showCompleteNotification(notificationId: Int, filename: String) {
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setContentTitle(context.getString(R.string.download_complete))
+            .setContentText(filename)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setAutoCancel(true)
+        notificationManager.notify(notificationId, builder.build())
+    }
+
+    fun showFailedNotification(notificationId: Int, filename: String) {
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setContentTitle(context.getString(R.string.download_failed))
+            .setContentText(filename)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setAutoCancel(true)
+        notificationManager.notify(notificationId, builder.build())
+    }
+
+    fun getManager() = notificationManager
+}
+=== Конец файла ./mcpe/NotificationHelper.kt ===
+
+=== Файл: ./mcpe/ScriptDownloader.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Context
+import android.net.Uri
+import androidx.core.content.edit
+import androidx.documentfile.provider.DocumentFile
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+
+sealed class DownloadState {
+    data object Idle : DownloadState()
+    data class Progress(
+        val progress: Int,
+        val downloadedBytes: Long,
+        val totalBytes: Long,
+        val speedBps: Long
+    ) : DownloadState()
+    data class Success(val filename: String) : DownloadState()
+    data class Error(val message: String) : DownloadState()
+}
+
+object ScriptDownloader {
+
+    fun download(context: Context, item: ScriptItem): Flow<DownloadState> = flow {
+        val notificationHelper = NotificationHelper(context)
+        notificationHelper.createChannel()
+        val notificationId = item.id.hashCode()
+        val notificationManager = notificationHelper.getManager()
+
+        try {
+            val responseBody = ApiService.instance.downloadFile(item.downloadUrl)
+            val prefs = context.getSharedPreferences(LocaleHelper.PREFS_NAME, Context.MODE_PRIVATE)
+            val folderUriString = prefs.getString("scripts_folder_uri", null)
+
+            if (folderUriString == null) {
+                emit(DownloadState.Error(context.getString(R.string.setup_error_wrong_folder, "scripts")))
+                return@flow
+            }
+
+            val folderUri = Uri.parse(folderUriString)
+            val scriptsFolder = DocumentFile.fromTreeUri(context, folderUri)
+
+            if (scriptsFolder == null || !scriptsFolder.canWrite()) {
+                emit(DownloadState.Error(context.getString(R.string.setup_error_permission_failed)))
+                return@flow
+            }
+
+            scriptsFolder.findFile(item.filename)?.delete()
+            val newFile = scriptsFolder.createFile("application/octet-stream", item.filename)
+
+            if (newFile == null) {
+                emit(DownloadState.Error("Не удалось создать файл."))
+                return@flow
+            }
+
+            val inputStream = responseBody.byteStream()
+            val outputStream = context.contentResolver.openOutputStream(newFile.uri)
+
+            if (outputStream == null) {
+                emit(DownloadState.Error("Не удалось открыть поток для записи."))
+                inputStream.close()
+                return@flow
+            }
+
+            val totalBytes = responseBody.contentLength()
+            var downloadedBytes = 0L
+            val buffer = ByteArray(8192)
+            var bytesRead: Int
+            var lastTime = System.currentTimeMillis()
+            var lastDownloaded = 0L
+
+            notificationManager.notify(notificationId, notificationHelper.buildProgressNotification(item.filename, 0).build())
+
+            while (inputStream.read(buffer).also { bytesRead = it } != -1) {
+                outputStream.write(buffer, 0, bytesRead)
+                downloadedBytes += bytesRead
+
+                val currentTime = System.currentTimeMillis()
+                val elapsedTime = currentTime - lastTime
+
+                if (elapsedTime > 200) {
+                    val bytesSinceLast = downloadedBytes - lastDownloaded
+                    val speedBps = if (elapsedTime > 0) (bytesSinceLast * 1000 / elapsedTime) else 0L
+                    val progress = if (totalBytes > 0) (downloadedBytes * 100 / totalBytes).toInt() else -1
+
+                    emit(DownloadState.Progress(progress, downloadedBytes, totalBytes, speedBps))
+
+                    if (progress != -1) {
+                        notificationManager.notify(notificationId, notificationHelper.buildProgressNotification(item.filename, progress).build())
+                    }
+
+                    lastTime = currentTime
+                    lastDownloaded = downloadedBytes
+                    delay(50) // Добавим небольшую задержку, чтобы не спамить UI
+                }
+            }
+
+            outputStream.flush()
+            outputStream.close()
+            inputStream.close()
+
+            prefs.edit {
+                putString("version_${item.id}", item.version)
+            }
+
+            notificationHelper.showCompleteNotification(notificationId, item.filename)
+            emit(DownloadState.Success(item.filename))
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            notificationHelper.showFailedNotification(notificationId, item.filename)
+            emit(DownloadState.Error(e.message ?: "Неизвестная ошибка"))
+        }
+    }.flowOn(Dispatchers.IO)
+}
+=== Конец файла ./mcpe/ScriptDownloader.kt ===
+
+=== Файл: ./mcpe/SetupActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.Manifest
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.edit
+import androidx.documentfile.provider.DocumentFile
+import com.aquaspoof.unified.toolkit.mcpe.databinding.SetupActivityBinding
+
+class SetupActivity : AppCompatActivity() {
+
+    private lateinit var binding: SetupActivityBinding
+
+    private var scriptsUriSet = false
+    private var configsUriSet = false
+
+    private val scriptsLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocumentTree()
+    ) { uri: Uri? ->
+        saveUri(uri, "scripts_folder_uri", "scripts") {
+            scriptsUriSet = true
+            binding.buttonScripts.text = getString(R.string.setup_button_granted)
+            binding.buttonScripts.isEnabled = false
+            checkCompletion()
+        }
+    }
+
+    private val configsLauncher = registerForActivityResult(
+        ActivityResultContracts.OpenDocumentTree()
+    ) { uri: Uri? ->
+        saveUri(uri, "configs_folder_uri", "configs") {
+            configsUriSet = true
+            binding.buttonConfigs.text = getString(R.string.setup_button_granted)
+            binding.buttonConfigs.isEnabled = false
+            checkCompletion()
+        }
+    }
+
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            binding.buttonNotify.text = getString(R.string.setup_button_granted)
+            binding.buttonNotify.isEnabled = false
+        } else {
+            Toast.makeText(this, "Уведомления не разрешены", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val prefs = getSharedPreferences(LocaleHelper.PREFS_NAME, Context.MODE_PRIVATE)
+        val isSetupComplete = prefs.getBoolean("isSetupComplete", false)
+        val hasSeenInfo = prefs.getBoolean("hasSeenInfoScreen", false)
+
+        if (isSetupComplete && hasSeenInfo) {
+            goToMainApp()
+            return
+        }
+
+        if (isSetupComplete && !hasSeenInfo) {
+            goToInfoApp()
+            return
+        }
+
+        binding = SetupActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        if (prefs.getString("scripts_folder_uri", null) != null) {
+            scriptsUriSet = true
+            binding.buttonScripts.text = getString(R.string.setup_button_granted)
+            binding.buttonScripts.isEnabled = false
+        }
+
+        if (prefs.getString("configs_folder_uri", null) != null) {
+            configsUriSet = true
+            binding.buttonConfigs.text = getString(R.string.setup_button_granted)
+            binding.buttonConfigs.isEnabled = false
+        }
+
+        checkNotificationPermission()
+        checkCompletion()
+        setupLanguageSelector()
+
+        binding.buttonScripts.setOnClickListener {
+            scriptsLauncher.launch(null)
+        }
+
+        binding.buttonConfigs.setOnClickListener {
+            configsLauncher.launch(null)
+        }
+
+        binding.buttonNotify.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            } else {
+                Toast.makeText(this, "На Android 12 и ниже разрешение не требуется", Toast.LENGTH_LONG).show()
+                binding.buttonNotify.text = getString(R.string.setup_button_granted)
+                binding.buttonNotify.isEnabled = false
+            }
+        }
+
+        binding.buttonFinish.setOnClickListener {
+            prefs.edit {
+                putBoolean("isSetupComplete", true)
+            }
+            goToInfoApp()
+        }
+    }
+
+    private fun setupLanguageSelector() {
+        val currentLang = LocaleHelper.getSavedLanguage(this)
+
+        val systemLang = java.util.Locale.getDefault().displayLanguage
+        binding.rbSystem.text = getString(R.string.setup_lang_system_dynamic, systemLang)
+
+        when (currentLang) {
+            LocaleHelper.LANG_RUSSIAN -> binding.rgLanguage.check(R.id.rb_russian)
+            LocaleHelper.LANG_ENGLISH -> binding.rgLanguage.check(R.id.rb_english)
+            LocaleHelper.LANG_UKRAINIAN -> binding.rgLanguage.check(R.id.rb_ukrainian)
+            LocaleHelper.LANG_BELARUSIAN -> binding.rgLanguage.check(R.id.rb_belarusian)
+            LocaleHelper.LANG_CHINESE_S -> binding.rgLanguage.check(R.id.rb_chinese_s)
+            LocaleHelper.LANG_CHINESE_T -> binding.rgLanguage.check(R.id.rb_chinese_t)
+            else -> binding.rgLanguage.check(R.id.rb_system)
+        }
+
+        binding.rgLanguage.setOnCheckedChangeListener { _, checkedId ->
+            val lang = when (checkedId) {
+                R.id.rb_russian -> LocaleHelper.LANG_RUSSIAN
+                R.id.rb_english -> LocaleHelper.LANG_ENGLISH
+                R.id.rb_ukrainian -> LocaleHelper.LANG_UKRAINIAN
+                R.id.rb_belarusian -> LocaleHelper.LANG_BELARUSIAN
+                R.id.rb_chinese_s -> LocaleHelper.LANG_CHINESE_S
+                R.id.rb_chinese_t -> LocaleHelper.LANG_CHINESE_T
+                else -> LocaleHelper.LANG_SYSTEM
+            }
+            LocaleHelper.saveLocalePreference(this, lang)
+            LocaleHelper.setLocale(lang)
+
+            recreate()
+        }
+    }
+
+    private fun checkNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+                PackageManager.PERMISSION_GRANTED) {
+                binding.buttonNotify.text = getString(R.string.setup_button_granted)
+                binding.buttonNotify.isEnabled = false
+            }
+        } else {
+            binding.buttonNotify.text = getString(R.string.setup_button_granted)
+            binding.buttonNotify.isEnabled = false
+        }
+    }
+
+    private fun checkCompletion() {
+        if (scriptsUriSet && configsUriSet) {
+            binding.buttonFinish.isEnabled = true
+        }
+    }
+
+    private fun goToMainApp() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun goToInfoApp() {
+        val intent = Intent(this, InfoActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun saveUri(uri: Uri?, key: String, expectedFolderName: String, onComplete: () -> Unit) {
+        if (uri != null) {
+
+            val folderName = getFolderNameFromUri(uri)
+            if (folderName?.lowercase() != expectedFolderName.lowercase()) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.setup_error_wrong_folder, expectedFolderName),
+                    Toast.LENGTH_LONG
+                ).show()
+                return
+            }
+
+            try {
+                val takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                contentResolver.takePersistableUriPermission(uri, takeFlags)
+
+                val prefs = getSharedPreferences(LocaleHelper.PREFS_NAME, Context.MODE_PRIVATE)
+                prefs.edit {
+                    putString(key, uri.toString())
+                }
+
+                onComplete()
+            } catch (e: SecurityException) {
+                e.printStackTrace()
+                Toast.makeText(this, getString(R.string.setup_error_permission_failed), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun getFolderNameFromUri(uri: Uri): String? {
+        val documentFile = DocumentFile.fromTreeUri(this, uri)
+        return documentFile?.name
+    }
+}
+=== Конец файла ./mcpe/SetupActivity.kt ===
+
+=== Файл: ./mcpe/ScriptListActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.aquaspoof.unified.toolkit.mcpe.databinding.ScriptListActivityBinding
+import kotlinx.coroutines.launch
+
+class ScriptListActivity : AppCompatActivity() {
+
+    private lateinit var binding: ScriptListActivityBinding
+    private lateinit var scriptAdapter: ScriptAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ScriptListActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        setupRecyclerViewAndLoadData()
+    }
+
+    private fun setupRecyclerViewAndLoadData() {
+        scriptAdapter = ScriptAdapter(emptyList())
+        binding.recyclerViewScripts.apply {
+            adapter = scriptAdapter
+            layoutManager = LinearLayoutManager(this@ScriptListActivity)
+        }
+
+        lifecycleScope.launch {
+            try {
+                val scripts = ApiService.instance.getScripts()
+                scriptAdapter.updateData(scripts)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this@ScriptListActivity, "Ошибка загрузки списка скриптов", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+}
+=== Конец файла ./mcpe/ScriptListActivity.kt ===
+
+=== Файл: ./mcpe/MainApplication.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.app.Application
+
+class MainApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        LocaleHelper.applySavedLocale(this)
+    }
+}
+=== Конец файла ./mcpe/MainApplication.kt ===
+
+=== Файл: ./mcpe/ScriptDetailActivity.kt ===
+package com.aquaspoof.unified.toolkit.mcpe
+
+import android.content.Context
+import android.graphics.Color
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.text.format.Formatter
+import android.util.TypedValue
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
+import androidx.documentfile.provider.DocumentFile
+import androidx.lifecycle.lifecycleScope
+import com.aquaspoof.unified.toolkit.mcpe.databinding.ScriptDetailActivityBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+class ScriptDetailActivity : AppCompatActivity() {
+
+    private lateinit var binding: ScriptDetailActivityBinding
+    private var scriptItem: ScriptItem? = null
+    private var downloadJob: Job? = null
+
+    companion object {
+        const val EXTRA_SCRIPT = "extra_script"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ScriptDetailActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        scriptItem = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra(EXTRA_SCRIPT, ScriptItem::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(EXTRA_SCRIPT)
+        }
+
+        if (scriptItem == null) {
+            finish()
+            return
+        }
+
+        setupToolbar()
+        populateUi()
+
+        binding.buttonDownload.setOnClickListener {
+            if (downloadJob?.isActive == true) {
+                downloadJob?.cancel()
+                resetDownloadUI()
+                checkFileStatus()
+            } else {
+                startDownload()
+            }
+        }
+
+        binding.buttonCompare.setOnClickListener {
+            compareHashes()
+        }
+    }
+
+    private fun startDownload() {
+        val item = scriptItem ?: return
+
+        binding.layoutProgressInfo.visibility = View.VISIBLE
+        binding.buttonDownload.text = getString(R.string.download_cancel)
+        binding.buttonDownload.setIconResource(R.drawable.ic_launcher_foreground) // TODO: Замени на иконку "Cancel"
+
+        val typedValue = TypedValue()
+        theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+        binding.buttonDownload.setTextColor(typedValue.data)
+
+        downloadJob = lifecycleScope.launch {
+            ScriptDownloader.download(this@ScriptDetailActivity, item).collect { state ->
+                when (state) {
+                    is DownloadState.Progress -> {
+                        val downloadedStr = Formatter.formatShortFileSize(this@ScriptDetailActivity, state.downloadedBytes)
+                        val totalStr = Formatter.formatShortFileSize(this@ScriptDetailActivity, state.totalBytes)
+                        val speedStr = Formatter.formatShortFileSize(this@ScriptDetailActivity, state.speedBps)
+
+                        binding.progressBar.progress = state.progress
+                        binding.buttonDownload.text = "${state.progress}%"
+                        binding.tvProgressSize.text = getString(R.string.download_progress_text, downloadedStr, totalStr, state.progress)
+                        binding.tvProgressSpeed.text = getString(R.string.download_speed_text, speedStr)
+                    }
+                    is DownloadState.Success -> {
+                        resetDownloadUI()
+                        checkFileStatus()
+                        Toast.makeText(this@ScriptDetailActivity, getString(R.string.download_complete) + ": ${state.filename}", Toast.LENGTH_SHORT).show()
+                    }
+                    is DownloadState.Error -> {
+                        resetDownloadUI()
+                        checkFileStatus()
+                        Toast.makeText(this@ScriptDetailActivity, "${getString(R.string.download_failed)}: ${state.message}", Toast.LENGTH_LONG).show()
+                    }
+                    is DownloadState.Idle -> {}
+                }
+            }
+        }
+    }
+
+    private fun resetDownloadUI() {
+        binding.layoutProgressInfo.visibility = View.GONE
+        binding.progressBar.progress = 0
+        binding.tvProgressSize.text = ""
+        binding.tvProgressSpeed.text = ""
+        binding.buttonDownload.icon = null
+
+        val typedValue = TypedValue()
+        theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+        binding.buttonDownload.setTextColor(typedValue.data)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (downloadJob?.isActive != true) {
+            resetDownloadUI()
+            checkFileStatus()
+        }
+    }
+
+    private fun checkFileStatus() {
+        val item = scriptItem ?: return
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val prefs = getSharedPreferences(LocaleHelper.PREFS_NAME, Context.MODE_PRIVATE)
+            val localVersion = prefs.getString("version_${item.id}", null)
+            val serverVersion = item.version
+
+            val folderUriString = prefs.getString("scripts_folder_uri", null)
+            var fileExists = false
+            var fileUri: Uri? = null
+
+            if (folderUriString != null) {
+                val folderUri = folderUriString.toUri()
+                val scriptsFolder = DocumentFile.fromTreeUri(this@ScriptDetailActivity, folderUri)
+                if (scriptsFolder != null) {
+                    val existingFile = scriptsFolder.findFile(item.filename)
+                    if (existingFile != null && existingFile.exists()) {
+                        fileExists = true
+                        fileUri = existingFile.uri
+                    }
+                }
+            }
+
+            withContext(Dispatchers.Main) {
+                resetDownloadUI()
+                updateButtonUI(fileExists, localVersion, serverVersion)
+                if (fileExists && fileUri != null) {
+                    binding.layoutLocalHashes.visibility = View.VISIBLE
+                    calculateAndDisplayLocalHashes(fileUri)
+                } else {
+                    binding.layoutLocalHashes.visibility = View.GONE
+                }
+            }
+        }
+    }
+
+    private fun calculateAndDisplayLocalHashes(uri: Uri) {
+        lifecycleScope.launch {
+            val hashes = HashCalculator.calculateHashes(this@ScriptDetailActivity, uri)
+            binding.tvLocalMd5.text = getString(R.string.detail_hash_md5, hashes.md5)
+            binding.tvLocalSha1.text = getString(R.string.detail_hash_sha1, hashes.sha1)
+            binding.tvLocalSha256.text = getString(R.string.detail_hash_sha256, hashes.sha256)
+            binding.tvLocalCrc32.text = getString(R.string.detail_hash_crc32, hashes.crc32)
+
+            compareHashes()
+        }
+    }
+
+    private fun compareHashes() {
+        val item = scriptItem ?: return
+        compareHashText(binding.tvServerMd5, binding.tvLocalMd5, item.md5)
+        compareHashText(binding.tvServerSha1, binding.tvLocalSha1, item.sha1)
+        compareHashText(binding.tvServerSha256, binding.tvLocalSha256, item.sha256)
+        compareHashText(binding.tvServerCrc32, binding.tvLocalCrc32, item.crc32)
+    }
+
+    private fun compareHashText(serverView: TextView, localView: TextView, serverHash: String?) {
+        val localHash = localView.text.toString().split(": ").getOrNull(1)
+
+        if (serverHash == null || localHash == null) {
+            serverView.setTextColor(Color.GRAY)
+            localView.setTextColor(Color.GRAY)
+            return
+        }
+
+        if (serverHash.equals(localHash, ignoreCase = true)) {
+            serverView.setTextColor(Color.GREEN)
+            localView.setTextColor(Color.GREEN)
+        } else {
+            serverView.setTextColor(Color.RED)
+            localView.setTextColor(Color.RED)
+        }
+    }
+
+    private fun updateButtonUI(fileExists: Boolean, localVersion: String?, serverVersion: String) {
+        binding.buttonDownload.isEnabled = true
+        when {
+            !fileExists -> {
+                binding.buttonDownload.text = getString(R.string.script_button_download)
+            }
+            localVersion != serverVersion -> {
+                binding.buttonDownload.text = getString(R.string.script_button_update)
+            }
+            else -> {
+                binding.buttonDownload.text = getString(R.string.script_button_downloaded)
+                binding.buttonDownload.isEnabled = false
+            }
+        }
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = scriptItem!!.name
+    }
+
+    private fun populateUi() {
+        val item = scriptItem!!
+        val na = getString(R.string.detail_not_specified)
+
+        binding.tvDescription.text = item.description
+
+        binding.tvAuthor.text = getString(R.string.detail_label_author, item.authors.joinToString(", "))
+        binding.tvVersion.text = getString(R.string.detail_label_version, item.version)
+        binding.tvLicense.text = getString(R.string.detail_label_license, item.license)
+        binding.tvFilename.text = getString(R.string.detail_label_filename, item.filename)
+        binding.tvDownloads.text = getString(R.string.detail_label_downloads, item.downloadCount)
+
+        val fileSizeStr = Formatter.formatShortFileSize(this, item.fileSize)
+        binding.tvFilesize.text = getString(R.string.detail_label_filesize, fileSizeStr)
+
+        binding.tvGithub.text = getString(R.string.detail_label_github, item.github ?: na)
+        binding.tvWebsites.text = getString(R.string.detail_label_websites, item.websites.joinToString("\n").ifEmpty { na })
+
+        binding.tvServerMd5.text = getString(R.string.detail_hash_md5, item.md5 ?: na)
+        binding.tvServerSha1.text = getString(R.string.detail_hash_sha1, item.sha1 ?: na)
+        binding.tvServerSha256.text = getString(R.string.detail_hash_sha256, item.sha256 ?: na)
+        binding.tvServerCrc32.text = getString(R.string.detail_hash_crc32, item.crc32 ?: na)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
+    }
+}
+=== Конец файла ./mcpe/ScriptDetailActivity.kt ===
+

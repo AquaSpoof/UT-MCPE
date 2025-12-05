@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "705399210044",
+    "project_id": "ut-mcpe",
+    "storage_bucket": "ut-mcpe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705399210044:android:ce5009e16f250a8a79c339",
+        "android_client_info": {
+          "package_name": "com.aquaspoof.unified.toolkit.mcpe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqKUKHPoifniy86Xch2d1RSg4mUYUPDsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,1712 @@
+=== Файл: ./values-zh-rTW/strings.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UnifiedToolkitForMCPE</string>
+    <string name="setup_title">初始設定</string>
+    <string name="setup_scripts_title">1. 存取腳本資料夾</string>
+    <string name="setup_scripts_desc">請選擇 \'/variable/scripts\' 資料夾</string>
+    <string name="setup_button_grant">授權</string>
+    <string name="setup_configs_title">2. 存取設定檔資料夾</string>
+    <string name="setup_configs_desc">請選擇 \'/variable/configs\' 資料夾</string>
+    <string name="setup_tg_info">你的腳本是開源的嗎？你想保護開發者的權利嗎？想分享你的腳本嗎？請透過 Telegram 聯絡我：</string>
+    <string name="setup_tg_link">https://t.me/l3trx</string>
+    <string name="setup_button_finish">完成設定</string>
+    <string name="setup_button_granted">已授權</string>
+    <string name="setup_icon_desc">狀態圖示</string>
+    <string name="setup_error_wrong_folder">選擇了錯誤的資料夾。應為：\'%1$s\'</string>
+    <string name="setup_error_permission_failed">錯誤：無法取得此資料夾的存取權限</string>
+    <string name="setup_notify_title">3. 通知 (可選)</string>
+    <string name="setup_notify_desc">允許顯示下載狀態通知</string>
+    <string name="setup_lang_title">語言 / Language</string>
+    <string name="setup_lang_system">跟隨系統</string>
+    <string name="setup_lang_ru">Русский 🇷🇺</string>
+    <string name="setup_lang_en">English 🇬🇧</string>
+    <string name="menu_about">關於</string>
+    <string name="menu_license">授權條款</string>
+    <string name="menu_settings">設定</string>
+    <string name="about_title">關於應用程式</string>
+    <string name="about_label_app_name">名稱: %1$s</string>
+    <string name="about_label_version">版本: %1$s (%2$s)</string>
+    <string name="about_label_package">套件名稱: %1$s</string>
+    <string name="about_label_author">作者: %1$s</string>
+    <string name="about_label_github">GitHub: %1$s</string>
+    <string name="about_author_name">AquaSpoof</string>
+    <string name="about_github_url">https://github.com/AquaSpoof/UT-MCPE</string>
+    <string name="license_title">授權條款</string>
+    <string name="license_name_mit">MIT License</string>
+    <string name="license_full_text_mit">Copyright (c) 2025 AquaSpoof\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.</string>
+    <string name="script_list_title">腳本列表</string>
+    <string name="script_button_download">下載</string>
+    <string name="detail_loading">載入中...</string>
+    <string name="detail_label_author">作者: %1$s</string>
+    <string name="detail_label_version">版本: %1$s</string>
+    <string name="detail_label_license">授權條款: %1$s</string>
+    <string name="detail_label_filename">檔案名稱: %1$s</string>
+    <string name="detail_label_downloads">下載量: %1$d</string>
+    <string name="detail_label_filesize">大小: %1$s</string>
+    <string name="detail_label_github">GitHub: %1$s</string>
+    <string name="detail_label_websites">社交網路: %1$s</string>
+    <string name="detail_not_specified">未指定</string>
+    <string name="detail_hashes_server">雜湊值 (伺服器)</string>
+    <string name="detail_hashes_local">雜湊值 (本地檔案)</string>
+    <string name="detail_hashes_compare">比較雜湊值</string>
+    <string name="script_button_details">詳情</string>
+    <string name="script_button_update">更新</string>
+    <string name="script_button_downloaded">已下載</string>
+    <string name="script_button_downloading">下載中...</string>
+    <string name="settings_title">設定</string>
+    <string name="settings_lang_title">應用程式語言</string>
+    <string name="setup_lang_system_dynamic">跟隨系統 (%1$s)</string>
+    <string name="info_title">開源資訊</string>
+    <string name="info_open_source_1">本應用程式提供的所有腳本、設定檔和其他資料均為開源項目。</string>
+    <string name="info_open_source_2">UT-MCPE 應用程式本身也是開源的，並在 MIT 授權條款下分發。</string>
+    <string name="info_tg_channel">官方 Telegram 頻道：</string>
+    <string name="info_tg_url">https://t.me/UT_MCPE</string>
+    <string name="info_created_by">由 AquaSpoof 團隊建立</string>
+    <string name="info_button_continue">進入主畫面</string>
+    <string name="main_title">主畫面</string>
+    <string name="main_button_catalog">Variable 目錄</string>
+    <string name="category_title">分類</string>
+    <string name="category_button_scripts">腳本</string>
+    <string name="category_button_configs">設定檔</string>
+    <string name="setup_lang_uk">Українська 🇺🇦</string>
+    <string name="setup_lang_be">Беларуская 🇧🇾</string>
+    <string name="setup_lang_zh_s">简体中文 🇨🇳</string>
+    <string name="setup_lang_zh_t">繁體中文 🇹🇼</string>
+    <string name="download_notification_channel_name">下載</string>
+    <string name="download_notification_title">正在下載腳本</string>
+    <string name="download_complete">下載完成</string>
+    <string name="download_failed">下載失敗</string>
+    <string name="download_progress_text">%1$s / %2$s (%3$d%%)</string>
+
+    <string name="download_speed_text">%1$s/s</string>
+    <string name="download_cancel">取消</string>
+    <string name="detail_hash_md5">MD5: %1$s</string>
+    <string name="detail_hash_sha1">SHA1: %1$s</string>
+    <string name="detail_hash_sha256">SHA256: %1$s</string>
+    <string name="detail_hash_crc32">CRC32: %1$s</string>
+    <string name="detail_hash_na">N/A</string>
+    <string name="push_notification_channel_name">一般通知</string>
+</resources>
+=== Конец файла ./values-zh-rTW/strings.xml ===
+
+=== Файл: ./values/strings.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UnifiedToolkitForMCPE</string>
+    <string name="setup_title">Initial Setup</string>
+    <string name="setup_scripts_title">1. Access to Scripts folder</string>
+    <string name="setup_scripts_desc">Please select \'/variable/scripts\' folder</string>
+    <string name="setup_button_grant">Grant</string>
+    <string name="setup_configs_title">2. Access to Configs folder</string>
+    <string name="setup_configs_desc">Please select \'/variable/configs\' folder</string>
+    <string name="setup_tg_info">Is your script Open Source? Do you want to protect developer rights? Want to share your script? Contact me on Telegram:</string>
+    <string name="setup_tg_link">https://t.me/l3trx</string>
+    <string name="setup_button_finish">Finish Setup</string>
+    <string name="setup_button_granted">Granted</string>
+    <string name="setup_icon_desc">Status icon</string>
+    <string name="setup_error_wrong_folder">Wrong folder selected. Expected: \'%1$s\'</string>
+    <string name="setup_error_permission_failed">Error: Could not get access to this folder</string>
+    <string name="setup_notify_title">3. Notifications (Optional)</string>
+    <string name="setup_notify_desc">Allow download status notifications</string>
+    <string name="setup_lang_title">Language</string>
+    <string name="setup_lang_system">System</string>
+    <string name="setup_lang_ru">Русский 🇷🇺</string>
+    <string name="setup_lang_en">English 🇬🇧</string>
+    <string name="menu_about">About</string>
+    <string name="menu_license">License</string>
+    <string name="menu_settings">Settings</string>
+    <string name="about_title">About App</string>
+    <string name="about_label_app_name">Name: %1$s</string>
+    <string name="about_label_version">Version: %1$s (%2$s)</string>
+    <string name="about_label_package">Package: %1$s</string>
+    <string name="about_label_author">Author: %1$s</string>
+    <string name="about_label_github">GitHub: %1$s</string>
+    <string name="about_author_name">AquaSpoof</string>
+    <string name="about_github_url">https://github.com/AquaSpoof/UT-MCPE</string>
+    <string name="license_title">License</string>
+    <string name="license_name_mit">MIT License</string>
+    <string name="license_full_text_mit">Copyright (c) 2025 AquaSpoof\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.</string>
+    <string name="script_list_title">Script List</string>
+    <string name="script_button_download">Download</string>
+    <string name="detail_loading">Loading...</string>
+    <string name="detail_label_author">Author: %1$s</string>
+    <string name="detail_label_version">Version: %1$s</string>
+    <string name="detail_label_license">License: %1$s</string>
+    <string name="detail_label_filename">File: %1$s</string>
+    <string name="detail_label_downloads">Downloads: %1$d</string>
+    <string name="detail_label_filesize">Size: %1$s</string>
+    <string name="detail_label_github">GitHub: %1$s</string>
+    <string name="detail_label_websites">Socials: %1$s</string>
+    <string name="detail_not_specified">Not specified</string>
+    <string name="detail_hashes_server">Hashes (Server)</string>
+    <string name="detail_hashes_local">Hashes (Local File)</string>
+    <string name="detail_hashes_compare">Compare Hashes</string>
+    <string name="script_button_details">Details</string>
+    <string name="script_button_update">Update</string>
+    <string name="script_button_downloaded">Downloaded</string>
+    <string name="script_button_downloading">Downloading...</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_lang_title">App Language</string>
+    <string name="setup_lang_system_dynamic">System (%1$s)</string>
+    <string name="info_title">Open Source Info</string>
+    <string name="info_open_source_1">All scripts, configs and other data provided by this app are open source projects.</string>
+    <string name="info_open_source_2">UT-MCPE is also open source under the MIT License.</string>
+    <string name="info_tg_channel">Official Telegram Channel:</string>
+    <string name="info_tg_url">https://t.me/UT_MCPE</string>
+    <string name="info_created_by">Created by AquaSpoof Team</string>
+    <string name="info_button_continue">To Main Screen</string>
+    <string name="main_title">Main Screen</string>
+    <string name="main_button_catalog">Variable Catalog</string>
+    <string name="category_title">Categories</string>
+    <string name="category_button_scripts">Scripts</string>
+    <string name="category_button_configs">Configs</string>
+    <string name="setup_lang_uk">Українська 🇺🇦</string>
+    <string name="setup_lang_be">Беларуская 🇧🇾</string>
+    <string name="setup_lang_zh_s">简体中文 🇨🇳</string>
+    <string name="setup_lang_zh_t">繁體中文 🇹🇼</string>
+    <string name="download_notification_channel_name">Downloads</string>
+    <string name="download_notification_title">Downloading Script</string>
+    <string name="download_complete">Download Complete</string>
+    <string name="download_failed">Download Failed</string>
+    <string name="download_progress_text">%1$s / %2$s (%3$d%%)</string>
+    <string name="download_speed_text">%1$s/s</string>
+    <string name="download_cancel">Cancel</string>
+    <string name="detail_hash_md5">MD5: %1$s</string>
+    <string name="detail_hash_sha1">SHA1: %1$s</string>
+    <string name="detail_hash_sha256">SHA256: %1$s</string>
+    <string name="detail_hash_crc32">CRC32: %1$s</string>
+    <string name="detail_hash_na">N/A</string>
+    <string name="push_notification_channel_name">General Notifications</string>
+</resources>
+=== Конец файла ./values/strings.xml ===
+
+=== Файл: ./values/colors.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
+
+=== Конец файла ./values/colors.xml ===
+
+=== Файл: ./values/themes.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.UnifiedToolkitForMCPE" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+</resources>
+=== Конец файла ./values/themes.xml ===
+
+=== Файл: ./drawable/ic_launcher_foreground.xml ===
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="85.84757"
+                android:endY="92.4963"
+                android:startX="42.9492"
+                android:startY="49.59793"
+                android:type="linear">
+                <item
+                    android:color="#44000000"
+                    android:offset="0.0" />
+                <item
+                    android:color="#00000000"
+                    android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+        android:strokeWidth="1"
+        android:strokeColor="#00000000" />
+</vector>
+=== Конец файла ./drawable/ic_launcher_foreground.xml ===
+
+=== Файл: ./drawable/progress_button_fill.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="25dp" />
+            <solid android:color="?attr/colorSurfaceVariant" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="25dp" />
+                <solid android:color="?attr/colorPrimary" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>
+=== Конец файла ./drawable/progress_button_fill.xml ===
+
+=== Файл: ./drawable/ic_launcher_background.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M0,0h108v108h-108z" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M9,0L9,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,0L19,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M29,0L29,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M39,0L39,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M49,0L49,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M59,0L59,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M69,0L69,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M79,0L79,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M89,0L89,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M99,0L99,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,9L108,9"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,19L108,19"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,29L108,29"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,39L108,39"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,49L108,49"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,59L108,59"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,69L108,69"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,79L108,79"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,89L108,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,99L108,99"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,29L89,29"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,39L89,39"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,49L89,49"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,59L89,59"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,69L89,69"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,79L89,79"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M29,19L29,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M39,19L39,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M49,19L49,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M59,19L59,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M69,19L69,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M79,19L79,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+</vector>
+
+=== Конец файла ./drawable/ic_launcher_background.xml ===
+
+=== Файл: ./values-uk/strings.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UnifiedToolkitForMCPE</string>
+    <string name="setup_title">Початкове налаштування</string>
+    <string name="menu_settings">Налаштування</string>
+    <string name="main_title">Головний екран</string>
+    <string name="category_title">Категорії</string>
+    <string name="category_button_scripts">Скрипти</string>
+    <string name="category_button_configs">Конфіги</string>
+    <string name="setup_scripts_title">1. Доступ до папки Скриптів</string>
+    <string name="setup_scripts_desc">Виберіть папку \'/variable/scripts\'</string>
+    <string name="setup_button_grant">Надати</string>
+    <string name="setup_configs_title">2. Доступ до папки Конфігів</string>
+    <string name="setup_configs_desc">Виберіть папку \'/variable/configs\'</string>
+    <string name="setup_tg_info">Твій скрипт є Open Source? Ти хочеш захистити права розробника? Хочеш поділитися своїм скриптом? Тоді пиши в тг:</string>
+    <string name="setup_tg_link">https://t.me/l3trx</string>
+    <string name="setup_button_finish">Завершити налаштування</string>
+    <string name="setup_button_granted">Готово</string>
+    <string name="setup_icon_desc">Іконка статусу</string>
+    <string name="setup_error_wrong_folder">Вибрано невірну папку. Очікувалася: \'%1$s\'</string>
+    <string name="setup_error_permission_failed">Помилка: Не вдалося отримати доступ до цієї папки</string>
+    <string name="setup_notify_title">3. Сповіщення (Необов\'язково)</string>
+    <string name="setup_notify_desc">Дозволити показ сповіщень про завантаження</string>
+    <string name="setup_lang_title">Мова / Language</string>
+    <string name="setup_lang_system">Системна</string>
+    <string name="setup_lang_ru">Русский 🇷🇺</string>
+    <string name="setup_lang_en">English 🇬🇧</string>
+    <string name="menu_about">Про додаток</string>
+    <string name="menu_license">Ліцензія</string>
+    <string name="about_title">Про додаток</string>
+    <string name="about_label_app_name">Назва: %1$s</string>
+    <string name="about_label_version">Версія: %1$s (%2$s)</string>
+    <string name="about_label_package">Пакет: %1$s</string>
+    <string name="about_label_author">Автор: %1$s</string>
+    <string name="about_label_github">GitHub: %1$s</string>
+    <string name="about_author_name">AquaSpoof</string>
+    <string name="about_github_url">https://github.com/AquaSpoof/UT-MCPE</string>
+    <string name="license_title">Ліцензія</string>
+    <string name="license_name_mit">MIT License</string>
+    <string name="license_full_text_mit">Copyright (c) 2025 AquaSpoof\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.</string>
+    <string name="script_list_title">Список Скриптів</string>
+    <string name="script_button_download">Завантажити</string>
+    <string name="detail_loading">Завантаження...</string>
+    <string name="detail_label_author">Автор: %1$s</string>
+    <string name="detail_label_version">Версія: %1$s</string>
+    <string name="detail_label_license">Ліцензія: %1$s</string>
+    <string name="detail_label_filename">Файл: %1$s</string>
+    <string name="detail_label_downloads">Завантажень: %1$d</string>
+    <string name="detail_label_filesize">Розмір: %1$s</string>
+    <string name="detail_label_github">GitHub: %1$s</string>
+    <string name="detail_label_websites">Соц. мережі: %1$s</string>
+    <string name="detail_not_specified">Не вказано</string>
+    <string name="detail_hashes_server">Хеші (Сервер)</string>
+    <string name="detail_hashes_local">Хеші (Локальний файл)</string>
+    <string name="detail_hashes_compare">Порівняти хеші</string>
+    <string name="script_button_details">Деталі</string>
+    <string name="script_button_update">Оновити</string>
+    <string name="script_button_downloaded">Завантажено</string>
+    <string name="script_button_downloading">Завантаження...</string>
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_lang_title">Мова додатка</string>
+    <string name="info_title">Інформація про Open Source</string>
+    <string name="info_open_source_1">Всі скрипти, конфіги та інші дані, що надаються цим додатком, є проектами з відкритим вихідним кодом.</string>
+    <string name="info_open_source_2">Додаток UT-MCPE також має відкритий вихідний код і поширюється за ліцензією MIT License.</string>
+    <string name="info_tg_channel">Офіційний Telegram Канал:</string>
+    <string name="info_tg_url">https://t.me/UT_MCPE</string>
+    <string name="info_created_by">Створено командою AquaSpoof</string>
+    <string name="info_button_continue">На головний екран</string>
+    <string name="setup_lang_system_dynamic">Системна (%1$s)</string>
+    <string name="setup_lang_uk">Українська 🇺🇦</string>
+    <string name="setup_lang_be">Беларуская 🇧🇾</string>
+    <string name="setup_lang_zh_s">Спрощена китайська 🇨🇳</string>
+    <string name="setup_lang_zh_t">Традиційна китайська 🇹🇼</string>
+    <string name="download_notification_channel_name">Завантаження</string>
+    <string name="download_notification_title">Завантаження скрипту</string>
+    <string name="download_complete">Завантаження завершено</string>
+    <string name="download_failed">Помилка завантаження</string>
+    <string name="download_progress_text">%1$s / %2$s (%3$d%%)</string>
+    <string name="download_speed_text">%1$s/с</string>
+    <string name="download_cancel">Скасувати</string>
+    <string name="detail_hash_md5">MD5: %1$s</string>
+    <string name="detail_hash_sha1">SHA1: %1$s</string>
+    <string name="detail_hash_sha256">SHA256: %1$s</string>
+    <string name="detail_hash_crc32">CRC32: %1$s</string>
+    <string name="detail_hash_na">Н/Д</string>
+    <string name="push_notification_channel_name">Загальні сповіщення</string>
+</resources>
+=== Конец файла ./values-uk/strings.xml ===
+
+=== Файл: ./values-night/themes.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.UnifiedToolkitForMCPE" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+</resources>
+=== Конец файла ./values-night/themes.xml ===
+
+=== Файл: ./layout/category_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".CategoryActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/category_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/button_scripts"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/category_button_scripts"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button_configs"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/category_button_configs"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+=== Конец файла ./layout/category_activity.xml ===
+
+=== Файл: ./layout/script_list_item.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_script_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Script Name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_script_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Script description goes here"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/script_button_details"
+        android:layout_marginStart="16dp" />
+</LinearLayout>
+=== Конец файла ./layout/script_list_item.xml ===
+
+=== Файл: ./layout/setup_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:fitsSystemWindows="true"
+    tools:context=".SetupActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/icon_scripts"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="@string/setup_icon_desc" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_scripts_title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_scripts_desc"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_scripts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_button_grant" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/icon_configs"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="@string/setup_icon_desc" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_configs_title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_configs_desc"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_configs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_button_grant" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/icon_notify"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="@string/setup_icon_desc" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_notify_title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_notify_desc"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_notify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_button_grant" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_tg_info"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/text_telegram_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_tg_link"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:autoLink="web"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/setup_lang_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
+
+    <RadioGroup
+        android:id="@+id/rg_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rb_system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_lang_system" />
+
+        <RadioButton
+            android:id="@+id/rb_russian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_lang_ru" />
+
+        <RadioButton
+            android:id="@+id/rb_english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_lang_en" />
+
+        <RadioButton
+            android:id="@+id/rb_ukrainian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_lang_uk" />
+
+        <RadioButton
+            android:id="@+id/rb_belarusian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_lang_be" />
+
+        <RadioButton
+            android:id="@+id/rb_chinese_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_lang_zh_s" />
+
+        <RadioButton
+            android:id="@+id/rb_chinese_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_lang_zh_t" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/button_finish"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/setup_button_finish"
+        android:enabled="false" />
+
+</LinearLayout>
+=== Конец файла ./layout/setup_activity.xml ===
+
+=== Файл: ./layout/main_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/main_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/button_variable_catalog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/main_button_catalog"
+            android:textSize="18sp"
+            android:padding="16dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+=== Конец файла ./layout/main_activity.xml ===
+
+=== Файл: ./layout/about_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".AboutActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/about_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView android:id="@+id/tv_app_name" tools:text="Название: App Name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+        <TextView android:id="@+id/tv_version" tools:text="Версия: 1.0 (1)" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+        <TextView android:id="@+id/tv_package" tools:text="Пакет: com.example.app" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+        <TextView android:id="@+id/tv_author" tools:text="Автор: Author" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+        <TextView android:id="@+id/tv_github" tools:text="GitHub: ..." android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:autoLink="web"/>
+    </LinearLayout>
+
+</LinearLayout>
+=== Конец файла ./layout/about_activity.xml ===
+
+=== Файл: ./layout/script_detail_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".ScriptDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            tools:title="Название скрипта" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"
+                tools:text="Описание скрипта..." />
+
+            <TextView android:id="@+id/tv_author" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Автор: AquaSpoof"/>
+            <TextView android:id="@+id/tv_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Версия: 1.2.0"/>
+            <TextView android:id="@+id/tv_license" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Лицензия: MIT"/>
+            <TextView android:id="@+id/tv_filename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Файл: BlockTapper.js"/>
+            <TextView android:id="@+id/tv_filesize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Размер: 1.5 KB"/>
+            <TextView android:id="@+id/tv_downloads" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Скачиваний: 123"/>
+            <TextView android:id="@+id/tv_github" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="GitHub:..." android:autoLink="web"/>
+            <TextView android:id="@+id/tv_websites" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" tools:text="Соц. сети:..." android:autoLink="web"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/detail_hashes_server"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+            <TextView android:id="@+id/tv_server_md5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="MD5:..."/>
+            <TextView android:id="@+id/tv_server_sha1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA1:..."/>
+            <TextView android:id="@+id/tv_server_sha256" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA256:..."/>
+            <TextView android:id="@+id/tv_server_crc32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="CRC32:..."/>
+
+            <LinearLayout
+                android:id="@+id/layout_local_hashes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/detail_hashes_local"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+                <TextView android:id="@+id/tv_local_md5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="MD5:..."/>
+                <TextView android:id="@+id/tv_local_sha1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA1:..."/>
+                <TextView android:id="@+id/tv_local_sha256" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="SHA256:..."/>
+                <TextView android:id="@+id/tv_local_crc32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" tools:text="CRC32:..."/>
+
+                <Button
+                    android:id="@+id/button_compare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_hashes_compare"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layout_progress_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_progress_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="2.4 MB / 4.0 MB" />
+
+        <TextView
+            android:id="@+id/tv_progress_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            tools:text="1.2 MB/s" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:minHeight="50dp">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_button_fill"
+            tools:progress="60" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:text="@string/script_button_download"
+            app:icon="@null"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
+
+    </FrameLayout>
+</LinearLayout>
+=== Конец файла ./layout/script_detail_activity.xml ===
+
+=== Файл: ./layout/info_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:fitsSystemWindows="true"
+    android:gravity="center_horizontal"
+    tools:context=".InfoActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_title"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/info_open_source_1"
+        android:textSize="16sp"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/info_open_source_2"
+        android:textSize="16sp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/github_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/about_github_url"
+        android:autoLink="web"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/info_tg_channel"
+        android:textSize="16sp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tg_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/info_tg_url"
+        android:autoLink="web"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_created_by"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textSize="14sp"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/button_continue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/info_button_continue" />
+</LinearLayout>
+=== Конец файла ./layout/info_activity.xml ===
+
+=== Файл: ./layout/script_list_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".ScriptListActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/script_list_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_scripts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/script_list_item" />
+</LinearLayout>
+=== Конец файла ./layout/script_list_activity.xml ===
+
+=== Файл: ./layout/settings_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".SettingsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/settings_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_lang_title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rg_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rb_system"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_lang_system" />
+
+            <RadioButton
+                android:id="@+id/rb_russian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_lang_ru" />
+
+            <RadioButton
+                android:id="@+id/rb_english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_lang_en" />
+
+            <RadioButton
+                android:id="@+id/rb_ukrainian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_lang_uk" />
+
+            <RadioButton
+                android:id="@+id/rb_belarusian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_lang_be" />
+
+            <RadioButton
+                android:id="@+id/rb_chinese_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_lang_zh_s" />
+
+            <RadioButton
+                android:id="@+id/rb_chinese_t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_lang_zh_t" />
+        </RadioGroup>
+
+    </LinearLayout>
+</LinearLayout>
+=== Конец файла ./layout/settings_activity.xml ===
+
+=== Файл: ./layout/license_activity.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".LicenseActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/license_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_license_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                tools:text="@string/license_name_mit" />
+
+            <TextView
+                android:id="@+id/tv_license_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                tools:text="@string/license_full_text_mit" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+=== Конец файла ./layout/license_activity.xml ===
+
+=== Файл: ./project_source_code_res.xml ===
+cat: ./project_source_code_res.xml: ввод и вывод в один файл
+
+=== Конец файла ./project_source_code_res.xml ===
+
+=== Файл: ./menu/main_menu.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/menu_settings"
+        android:orderInCategory="90"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/menu_about"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_license"
+        android:title="@string/menu_license"
+        android:orderInCategory="101"
+        app:showAsAction="never" />
+</menu>
+=== Конец файла ./menu/main_menu.xml ===
+
+=== Файл: ./mipmap-anydpi-v26/ic_launcher.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
+</adaptive-icon>
+=== Конец файла ./mipmap-anydpi-v26/ic_launcher.xml ===
+
+=== Файл: ./mipmap-anydpi-v26/ic_launcher_round.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
+</adaptive-icon>
+=== Конец файла ./mipmap-anydpi-v26/ic_launcher_round.xml ===
+
+=== Файл: ./values-ru/strings.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UnifiedToolkitForMCPE</string>
+    <string name="setup_title">Первоначальная настройка</string>
+    <string name="setup_scripts_title">1. Доступ к папке Скриптов</string>
+    <string name="setup_scripts_desc">Выберите папку \'/variable/scripts\'</string>
+    <string name="setup_button_grant">Выдать</string>
+    <string name="setup_configs_title">2. Доступ к папке Конфигов</string>
+    <string name="setup_configs_desc">Выберите папку \'/variable/configs\'</string>
+    <string name="setup_tg_info">Твой скрипт является Open Source? Ты хочешь защитить права разработчика? Хочешь поделиться своим скриптом? Тогда пиши в тг:</string>
+    <string name="setup_tg_link">https://t.me/l3trx</string>
+    <string name="setup_button_finish">Завершить настройку</string>
+    <string name="setup_button_granted">Готово</string>
+    <string name="setup_icon_desc">Иконка статуса</string>
+    <string name="setup_error_wrong_folder">Выбрана неверная папка. Ожидалась: \'%1$s\'</string>
+    <string name="setup_error_permission_failed">Ошибка: Не удалось получить доступ к этой папке</string>
+    <string name="setup_notify_title">3. Уведомления (Необязательно)</string>
+    <string name="setup_notify_desc">Разрешить показ уведомлений о скачивании</string>
+    <string name="setup_lang_title">Язык</string>
+    <string name="setup_lang_system">Системный</string>
+    <string name="setup_lang_ru">Русский 🇷🇺</string>
+    <string name="setup_lang_en">English 🇬🇧</string>
+    <string name="menu_about">О приложении</string>
+    <string name="menu_license">Лицензия</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="about_title">О приложении</string>
+    <string name="about_label_app_name">Название: %1$s</string>
+    <string name="about_label_version">Версия: %1$s (%2$s)</string>
+    <string name="about_label_package">Пакет: %1$s</string>
+    <string name="about_label_author">Автор: %1$s</string>
+    <string name="about_label_github">GitHub: %1$s</string>
+    <string name="about_author_name">AquaSpoof</string>
+    <string name="about_github_url">https://github.com/AquaSpoof/UT-MCPE</string>
+    <string name="license_title">Лицензия</string>
+    <string name="license_name_mit">MIT License</string>
+    <string name="license_full_text_mit">Copyright (c) 2025 AquaSpoof\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.</string>
+    <string name="script_list_title">Список Скриптов</string>
+    <string name="script_button_download">Скачать</string>
+    <string name="detail_loading">Загрузка...</string>
+    <string name="detail_label_author">Автор: %1$s</string>
+    <string name="detail_label_version">Версия: %1$s</string>
+    <string name="detail_label_license">Лицензия: %1$s</string>
+    <string name="detail_label_filename">Файл: %1$s</string>
+    <string name="detail_label_downloads">Скачиваний: %1$d</string>
+    <string name="detail_label_filesize">Размер: %1$s</string>
+    <string name="detail_label_github">GitHub: %1$s</string>
+    <string name="detail_label_websites">Соц. сети: %1$s</string>
+    <string name="detail_not_specified">Не указан</string>
+    <string name="detail_hashes_server">Хеши (Сервер)</string>
+    <string name="detail_hashes_local">Хеши (Локальный файл)</string>
+    <string name="detail_hashes_compare">Сравнить хеши</string>
+    <string name="script_button_details">Детали</string>
+    <string name="script_button_update">Обновить</string>
+    <string name="script_button_downloaded">Скачано</string>
+    <string name="script_button_downloading">Загрузка...</string>
+    <string name="settings_title">Настройки</string>
+    <string name="settings_lang_title">Язык приложения</string>
+    <string name="setup_lang_system_dynamic">Системный (%1$s)</string>
+    <string name="info_title">Информация об Open Source</string>
+    <string name="info_open_source_1">Все скрипты, конфиги и другие данные, предоставляемые этим приложением, являются проектами с открытым исходным кодом.</string>
+    <string name="info_open_source_2">Приложение UT-MCPE также имеет открытый исходный код и распространяется под лицензией MIT License.</string>
+    <string name="info_tg_channel">Официальный Telegram Канал:</string>
+    <string name="info_tg_url">https://t.me/UT_MCPE</string>
+    <string name="info_created_by">Создано командой AquaSpoof</string>
+    <string name="info_button_continue">На главный экран</string>
+    <string name="main_title">Главный экран</string>
+    <string name="main_button_catalog">Каталог Variable</string>
+    <string name="category_title">Категории</string>
+    <string name="category_button_scripts">Скрипты</string>
+    <string name="category_button_configs">Конфиги</string>
+    <string name="setup_lang_uk">Украинский 🇺🇦</string>
+    <string name="setup_lang_be">Белорусский 🇧🇾</string>
+    <string name="setup_lang_zh_s">Упрощенный китайский 🇨🇳</string>
+    <string name="setup_lang_zh_t">Традиционный китайский 🇹🇼</string>
+    <string name="download_notification_channel_name">Загрузки</string>
+    <string name="download_notification_title">Загрузка скрипта</string>
+    <string name="download_complete">Загрузка завершена</string>
+    <string name="download_failed">Ошибка загрузки</string>
+    <string name="download_progress_text">%1$s / %2$s (%3$d%%)</string>
+    <string name="download_speed_text">%1$s/с</string>
+    <string name="download_cancel">Отмена</string>
+    <string name="detail_hash_md5">MD5: %1$s</string>
+    <string name="detail_hash_sha1">SHA1: %1$s</string>
+    <string name="detail_hash_sha256">SHA256: %1$s</string>
+    <string name="detail_hash_crc32">CRC32: %1$s</string>
+    <string name="detail_hash_na">Н/Д</string>
+    <string name="push_notification_channel_name">Общие уведомления</string>
+</resources>
+=== Конец файла ./values-ru/strings.xml ===
+
+=== Файл: ./values-ru/colors.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
+=== Конец файла ./values-ru/colors.xml ===
+
+=== Файл: ./values-ru/themes.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.UnifiedToolkitForMCPE" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+</resources>
+=== Конец файла ./values-ru/themes.xml ===
+
+=== Файл: ./xml/data_extraction_rules.xml ===
+<?xml version="1.0" encoding="utf-8"?><!--
+   Sample data extraction rules file; uncomment and customize as necessary.
+   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+   for details.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- TODO: Use <include> and <exclude> to control what is backed up.
+        <include .../>
+        <exclude .../>
+        -->
+    </cloud-backup>
+    <!--
+    <device-transfer>
+        <include .../>
+        <exclude .../>
+    </device-transfer>
+    -->
+</data-extraction-rules>
+=== Конец файла ./xml/data_extraction_rules.xml ===
+
+=== Файл: ./xml/backup_rules.xml ===
+<?xml version="1.0" encoding="utf-8"?><!--
+   Sample backup rules file; uncomment and customize as necessary.
+   See https://developer.android.com/guide/topics/data/autobackup
+   for details.
+   Note: This file is ignored for devices older than API 31
+   See https://developer.android.com/about/versions/12/backup-restore
+-->
+<full-backup-content>
+    <!--
+   <include domain="sharedpref" path="."/>
+   <exclude domain="sharedpref" path="device.xml"/>
+-->
+</full-backup-content>
+=== Конец файла ./xml/backup_rules.xml ===
+
+=== Файл: ./values-zh-rCN/strings.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UnifiedToolkitForMCPE</string>
+    <string name="setup_title">初始設定</string>
+    <string name="setup_scripts_title">1. 存取腳本資料夾</string>
+    <string name="setup_scripts_desc">請選擇 \'/variable/scripts\' 資料夾</string>
+    <string name="setup_button_grant">授權</string>
+    <string name="setup_configs_title">2. 存取設定檔資料夾</string>
+    <string name="setup_configs_desc">請選擇 \'/variable/configs\' 資料夾</string>
+    <string name="setup_tg_info">你的腳本是開源的嗎？你想保護開發者的權利嗎？想分享你的腳本嗎？請透過 Telegram 聯絡我：</string>
+    <string name="setup_tg_link">https://t.me/l3trx</string>
+    <string name="setup_button_finish">完成設定</string>
+    <string name="setup_button_granted">已授權</string>
+    <string name="setup_icon_desc">狀態圖示</string>
+    <string name="setup_error_wrong_folder">選擇了錯誤的資料夾。應為：\'%1$s\'</string>
+    <string name="setup_error_permission_failed">錯誤：無法取得此資料夾的存取權限</string>
+    <string name="setup_notify_title">3. 通知 (可選)</string>
+    <string name="setup_notify_desc">允許顯示下載狀態通知</string>
+    <string name="setup_lang_title">語言 / Language</string>
+    <string name="setup_lang_system">跟隨系統</string>
+    <string name="setup_lang_ru">Русский 🇷🇺</string>
+    <string name="setup_lang_en">English 🇬🇧</string>
+    <string name="menu_about">關於</string>
+    <string name="menu_license">授權條款</string>
+    <string name="menu_settings">設定</string>
+    <string name="about_title">關於應用程式</string>
+    <string name="about_label_app_name">名稱: %1$s</string>
+    <string name="about_label_version">版本: %1$s (%2$s)</string>
+    <string name="about_label_package">套件名稱: %1$s</string>
+    <string name="about_label_author">作者: %1$s</string>
+    <string name="about_label_github">GitHub: %1$s</string>
+    <string name="about_author_name">AquaSpoof</string>
+    <string name="about_github_url">https://github.com/AquaSpoof/UT-MCPE</string>
+    <string name="license_title">授權條款</string>
+    <string name="license_name_mit">MIT License</string>
+    <string name="license_full_text_mit">Copyright (c) 2025 AquaSpoof\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.</string>
+    <string name="script_list_title">腳本列表</string>
+    <string name="script_button_download">下載</string>
+    <string name="detail_loading">載入中...</string>
+    <string name="detail_label_author">作者: %1$s</string>
+    <string name="detail_label_version">版本: %1$s</string>
+    <string name="detail_label_license">授權條款: %1$s</string>
+    <string name="detail_label_filename">檔案名稱: %1$s</string>
+    <string name="detail_label_downloads">下載量: %1$d</string>
+    <string name="detail_label_filesize">大小: %1$s</string>
+    <string name="detail_label_github">GitHub: %1$s</string>
+    <string name="detail_label_websites">社交網路: %1$s</string>
+    <string name="detail_not_specified">未指定</string>
+    <string name="detail_hashes_server">雜湊值 (伺服器)</string>
+    <string name="detail_hashes_local">雜湊值 (本地檔案)</string>
+    <string name="detail_hashes_compare">比較雜湊值</string>
+    <string name="script_button_details">詳情</string>
+    <string name="script_button_update">更新</string>
+    <string name="script_button_downloaded">已下載</string>
+    <string name="script_button_downloading">下載中...</string>
+    <string name="settings_title">設定</string>
+    <string name="settings_lang_title">應用程式語言</string>
+    <string name="setup_lang_system_dynamic">跟隨系統 (%1$s)</string>
+    <string name="info_title">開源資訊</string>
+    <string name="info_open_source_1">本應用程式提供的所有腳本、設定檔和其他資料均為開源項目。</string>
+    <string name="info_open_source_2">UT-MCPE 應用程式本身也是開源的，並在 MIT 授權條款下分發。</string>
+    <string name="info_tg_channel">官方 Telegram 頻道：</string>
+    <string name="info_tg_url">https://t.me/UT_MCPE</string>
+    <string name="info_created_by">由 AquaSpoof 團隊建立</string>
+    <string name="info_button_continue">進入主畫面</string>
+    <string name="main_title">主畫面</string>
+    <string name="main_button_catalog">Variable 目錄</string>
+    <string name="category_title">分類</string>
+    <string name="category_button_scripts">腳本</string>
+    <string name="category_button_configs">設定檔</string>
+    <string name="setup_lang_uk">Українська 🇺🇦</string>
+    <string name="setup_lang_be">Беларуская 🇧🇾</string>
+    <string name="setup_lang_zh_s">简体中文 🇨🇳</string>
+    <string name="setup_lang_zh_t">繁體中文 🇹🇼</string>
+    <string name="download_notification_channel_name">下載</string>
+    <string name="download_notification_title">正在下載腳本</string>
+    <string name="download_complete">下載完成</string>
+    <string name="download_failed">下載失敗</string>
+    <string name="download_progress_text">%1$s / %2$s (%3$d%%)</string>
+    <string name="download_speed_text">%1$s/s</string>
+    <string name="download_cancel">取消</string>
+    <string name="detail_hash_md5">MD5: %1$s</string>
+    <string name="detail_hash_sha1">SHA1: %1$s</string>
+    <string name="detail_hash_sha256">SHA256: %1$s</string>
+    <string name="detail_hash_crc32">CRC32: %1$s</string>
+    <string name="detail_hash_na">N/A</string>
+    <string name="push_notification_channel_name">常规通知</string>
+</resources>
+=== Конец файла ./values-zh-rCN/strings.xml ===
+
+=== Файл: ./values-be/strings.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UnifiedToolkitForMCPE</string>
+    <string name="setup_title">Пачатковая налада</string>
+    <string name="menu_settings">Налады</string>
+    <string name="main_title">Галоўны экран</string>
+    <string name="category_title">Катэгорыі</string>
+    <string name="category_button_scripts">Скрыпты</string>
+    <string name="category_button_configs">Канфігі</string>
+    <string name="setup_lang_system_dynamic">Сістэмная (%1$s)</string>
+    <string name="info_title">Інфармацыя пра Open Source</string>
+    <string name="info_open_source_1">Усе скрыпты, канфігі і іншыя даныя, якія прадстаўляюцца гэтым дадаткам, з\'яўляюцца праектамі з адкрытым зыходным кодам.</string>
+    <string name="info_open_source_2">Дадатак UT-MCPE таксама мае адкрыты зыходны код і распаўсюджваецца пад ліцэнзіяй MIT License.</string>
+    <string name="info_tg_channel">Афіцыйны Telegram Канал:</string>
+    <string name="info_tg_url">https://t.me/UT_MCPE</string>
+    <string name="info_created_by">Створана камандай AquaSpoof</string>
+    <string name="info_button_continue">На галоўны экран</string>
+    <string name="setup_scripts_title">1. Доступ да папкі Скрыптоў</string>
+    <string name="setup_scripts_desc">Выберыце папку \'/variable/scripts\'</string>
+    <string name="setup_button_grant">Выдаць</string>
+    <string name="setup_configs_title">2. Доступ да папкі Конфігаў</string>
+    <string name="setup_configs_desc">Выберыце папку \'/variable/configs\'</string>
+    <string name="setup_tg_info">Твой скрыпт з\'яўляецца Open Source? Ты хочаш абараніць правы распрацоўшчыка? Хочаш падзяліцца сваім скрыптам? Тады пішы ў тг:</string>
+    <string name="setup_tg_link">https://t.me/l3trx</string>
+    <string name="setup_button_finish">Завяршыць наладу</string>
+    <string name="setup_button_granted">Гатова</string>
+    <string name="setup_icon_desc">Іконка статусу</string>
+    <string name="setup_error_wrong_folder">Выбрана няправільная папка. Чакалася: \'%1$s\'</string>
+    <string name="setup_error_permission_failed">Памылка: Не ўдалося атрымаць доступ да гэтай папкі</string>
+    <string name="setup_notify_title">3. Апавяшчэнні (Неабавязкова)</string>
+    <string name="setup_notify_desc">Дазволіць паказ апавяшчэнняў аб спампоўцы</string>
+    <string name="setup_lang_title">Мова / Language</string>
+    <string name="setup_lang_system">Сістэмная</string>
+    <string name="setup_lang_ru">Русский 🇷🇺</string>
+    <string name="setup_lang_en">English 🇬🇧</string>
+    <string name="menu_about">Пра дадатак</string>
+    <string name="menu_license">Ліцэнзія</string>
+    <string name="about_title">Пра дадатак</string>
+    <string name="about_label_app_name">Назва: %1$s</string>
+    <string name="about_label_version">Версія: %1$s (%2$s)</string>
+    <string name="about_label_package">Пакет: %1$s</string>
+    <string name="about_label_author">Аўтар: %1$s</string>
+    <string name="about_label_github">GitHub: %1$s</string>
+    <string name="about_author_name">AquaSpoof</string>
+    <string name="about_github_url">https://github.com/AquaSpoof/UT-MCPE</string>
+    <string name="license_title">Ліцэнзія</string>
+    <string name="license_name_mit">MIT License</string>
+    <string name="license_full_text_mit">Copyright (c) 2025 AquaSpoof\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.</string>
+    <string name="script_list_title">Спіс Скрыптоў</string>
+    <string name="script_button_download">Спампаваць</string>
+    <string name="detail_loading">Загрузка...</string>
+    <string name="detail_label_author">Аўтар: %1$s</string>
+    <string name="detail_label_version">Версія: %1$s</string>
+    <string name="detail_label_license">Ліцэнзія: %1$s</string>
+    <string name="detail_label_filename">Файл: %1$s</string>
+    <string name="detail_label_downloads">Спамповак: %1$d</string>
+    <string name="detail_label_filesize">Памер: %1$s</string>
+    <string name="detail_label_github">GitHub: %1$s</string>
+    <string name="detail_label_websites">Сац. сеткі: %1$s</string>
+    <string name="detail_not_specified">Не пазначана</string>
+    <string name="detail_hashes_server">Хэшы (Сервер)</string>
+    <string name="detail_hashes_local">Хэшы (Лакальны файл)</string>
+    <string name="detail_hashes_compare">Параўнаць хэшы</string>
+    <string name="script_button_details">Дэталі</string>
+    <string name="script_button_update">Абнавіць</string>
+    <string name="script_button_downloaded">Спампавана</string>
+    <string name="script_button_downloading">Загрузка...</string>
+    <string name="settings_title">Налады</string>
+    <string name="settings_lang_title">Мова дадатка</string>
+    <string name="setup_lang_uk">Українська 🇺🇦</string>
+    <string name="setup_lang_be">Беларуская 🇧🇾</string>
+    <string name="setup_lang_zh_s">Спрошчаная кітайская 🇨🇳</string>
+    <string name="setup_lang_zh_t">Традыцыйная кітайская 🇹🇼</string>
+    <string name="download_notification_channel_name">Загрузкі</string>
+    <string name="download_notification_title">Загрузка скрыпту</string>
+    <string name="download_complete">Загрузка завершана</string>
+    <string name="download_failed">Памылка загрузкі</string>
+    <string name="download_progress_text">%1$s / %2$s (%3$d%%)</string>
+    <string name="download_speed_text">%1$s/с</string>
+    <string name="download_cancel">Адмена</string>
+    <string name="detail_hash_md5">MD5: %1$s</string>
+    <string name="detail_hash_sha1">SHA1: %1$s</string>
+    <string name="detail_hash_sha256">SHA256: %1$s</string>
+    <string name="detail_hash_crc32">CRC32: %1$s</string>
+    <string name="detail_hash_na">Н/Д</string>
+    <string name="push_notification_channel_name">Агульныя апавяшчэнні</string>
+</resources>
+=== Конец файла ./values-be/strings.xml ===
+
