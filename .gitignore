@@ -16,3 +16,4 @@ local.properties
 *.jks
 *.keystore
 my-release-key.jks
+gradle.properties

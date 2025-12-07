@@ -13,15 +13,14 @@ android {
         applicationId = "com.aquaspoof.unified.toolkit.mcpe"
         minSdk = 24
         targetSdk = 36
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 3
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
         create("release") {
-            // Внимание: Убедитесь, что эти пути корректны при реальной сборке Release
             storeFile = file(properties.toString())
             storePassword = properties.toString()
             keyAlias = properties.toString()
@@ -71,10 +70,7 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     implementation(libs.google.gson)
     implementation(libs.kotlinx.coroutines.android)
-
-    // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)
-    // ИСПРАВЛЕНИЕ: Используем firebase.auth вместо firebase.auth.ktx
     implementation(libs.firebase.auth)
 }
